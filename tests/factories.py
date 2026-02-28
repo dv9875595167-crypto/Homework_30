@@ -1,5 +1,4 @@
 import random
-
 import factory
 
 from hw.app import db
@@ -11,11 +10,11 @@ class ClientFactory(factory.alchemy.SQLAlchemyModelFactory):
         model = Client
         sqlalchemy_session = db.session
 
-    name = factory.Faker("first_name")
-    surname = factory.Faker("last_name")
+    name = factory.Faker("first_name", locale="en_US")
+    surname = factory.Faker("last_name", locale="en_US")
     credit_card = factory.Maybe(
         factory.Faker("pybool"),
-        yes_declaration=factory.Faker("credit_card_number"),
+        yes_declaration=factory.Faker("credit_card_number", locale="en_US"),
         no_declaration=None,
     )
     car_number = factory.Faker("text", max_nb_chars=50)
@@ -26,7 +25,7 @@ class ParkingFactory(factory.alchemy.SQLAlchemyModelFactory):
         model = Parking
         sqlalchemy_session = db.session
 
-    address = factory.Faker("address")
+    address = factory.Faker("address", locale="en_US")
     opened = factory.Faker("pybool")
     count_places = factory.Faker("pyint", min_value=1, max_value=50)
     count_available_places = factory.LazyAttribute(
