@@ -1,7 +1,7 @@
 import random
 
 import factory
-import factory.fuzzy as fuzzy
+
 from hw.app import db
 from hw.models import Client, Parking
 
