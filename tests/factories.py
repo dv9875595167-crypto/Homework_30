@@ -1,4 +1,5 @@
 import random
+
 import factory
 from faker import Faker as FakerLib
 
@@ -6,6 +7,7 @@ from hw.app import db
 from hw.models import Client, Parking
 
 fake = FakerLib(locale="en_US")
+
 
 class ClientFactory(factory.alchemy.SQLAlchemyModelFactory):
     class Meta:
@@ -20,6 +22,7 @@ class ClientFactory(factory.alchemy.SQLAlchemyModelFactory):
         no_declaration=None,
     )
     car_number = factory.LazyFunction(lambda: fake.text(max_nb_chars=50))
+
 
 class ParkingFactory(factory.alchemy.SQLAlchemyModelFactory):
     class Meta:
