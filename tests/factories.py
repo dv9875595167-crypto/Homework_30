@@ -31,4 +31,3 @@ class ParkingFactory(factory.alchemy.SQLAlchemyModelFactory):
     count_available_places = factory.LazyAttribute(
         lambda obj: random.randint(0, obj.count_places)
     )
-    
