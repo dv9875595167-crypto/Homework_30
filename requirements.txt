@@ -9,4 +9,4 @@ isort==8.0.0
 mypy==1.19.1
 flake8==7.3.0
 uvicorn==0.40.0
-FastAPI==0.0.24
+fastapi==0.134.0
